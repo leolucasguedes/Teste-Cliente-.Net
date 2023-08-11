@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApi.Models;
+using WebApi.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,7 +23,8 @@ namespace WebApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Client>>> GetClients()
         {
-            return await _context.Clients.ToListAsync();
+            var clients = await _context.Clients.ToListAsync();
+            return Ok(clients);
         }
 
         // GET: api/Client/5
@@ -36,17 +38,22 @@ namespace WebApi.Controllers
                 return NotFound();
             }
 
-            return client;
+            return Ok(client);
         }
 
         // POST: api/Client
         [HttpPost]
         public async Task<ActionResult<Client>> PostClient(Client client)
         {
+            if (client == null)
+            {
+                return BadRequest("Invalid client data.");
+            }
+
             _context.Clients.Add(client);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetClient", new { id = client.Id }, client);
+            return CreatedAtAction(nameof(GetClient), new { id = client.Id }, client);
         }
 
         // PUT: api/Client/5
@@ -55,7 +62,7 @@ namespace WebApi.Controllers
         {
             if (id != client.Id)
             {
-                return BadRequest();
+                return BadRequest("Client ID in URL does not match the ID in the request body.");
             }
 
             _context.Entry(client).State = EntityState.Modified;

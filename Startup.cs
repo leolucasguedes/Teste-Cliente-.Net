@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
-using WebApi.Models;
+using WebApi.Data;
 
 namespace WebApi
 {
@@ -30,8 +30,8 @@ namespace WebApi
             });
 
             services.AddDbContext<AppDbContext>(options =>
-              options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"), 
-              b => b.MigrationsAssembly("TesteDotNet")));
+                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
