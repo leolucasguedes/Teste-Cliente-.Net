@@ -1,11 +1,26 @@
 using Microsoft.EntityFrameworkCore;
-using Npgsql;
+using Microsoft.Extensions.Configuration;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
+using WebApi.Models;
 
-protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+public class AppDbContext : DbContext
 {
-    if (!optionsBuilder.IsConfigured)
+    private readonly IConfiguration _configuration;
+
+    public AppDbContext(DbContextOptions<AppDbContext> options, IConfiguration configuration) : base(options)
     {
-        optionsBuilder.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
+        _configuration = configuration;
+    }
+
+    public DbSet<Client> Clients { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Client>().ToTable("Client");
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseNpgsql(_configuration.GetConnectionString("DefaultConnection"));
     }
 }
-
