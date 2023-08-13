@@ -1,3 +1,5 @@
+Migrations/
+.env
 # Visual Studio Code
 .vscode/
 
