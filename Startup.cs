@@ -19,6 +19,16 @@ namespace WebApi
             var connectionString = $"Host={Env.GetString("DB_HOST")};Port={Env.GetString("DB_PORT")};Database={Env.GetString("DB_NAME")};Username={Env.GetString("DB_USER")};Password={Env.GetString("DB_PASSWORD")};";
             services.AddControllers();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowReactApp",
+                    builder => builder
+                        .WithOrigins("http://localhost:3000", "http://localhost:3001")  // Ou a origem do seu aplicativo React
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                );
+            });
+
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen(c =>
             {
@@ -41,6 +51,8 @@ namespace WebApi
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors("AllowReactApp");
 
             app.UseRouting();
 

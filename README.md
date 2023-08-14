@@ -70,7 +70,7 @@ GET /api/client
 #### Get a client by identifier
 
 ```http
-Get /api/client/:id
+GET /api/client/:id
 ```
 
 #### Request:
@@ -86,7 +86,7 @@ Get /api/client/:id
 #### Update a register by identifier
 
 ```http
-UPDATE /api/client/:id
+PUT /api/client/:id
 ```
 
 #### Request:

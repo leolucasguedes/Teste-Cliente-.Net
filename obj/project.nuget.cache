@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lYMZApDNXpeE+j7cCI+/IsLFEfbBWhjR8KRqInswgN4n4wfzm9gu1QRRPMW2/sIWXXXRR7FwEQoEht2jCyEWKQ==",
+  "dgSpecHash": "/58aJ9SsSw8EWpBrh1XnizA7r5UpjX9xc6xuYcMrth1D7g1f6W8yDOemOSac/v75Qhuh2aXb3uh+VF4i84kD2g==",
   "success": true,
   "projectFilePath": "/home/leolucas/Documentos/TesteDotNet/TesteDotNet.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "/home/leolucas/.nuget/packages/azure.identity/1.6.0/azure.identity.1.6.0.nupkg.sha512",
     "/home/leolucas/.nuget/packages/dotnetenv/2.5.0/dotnetenv.2.5.0.nupkg.sha512",
     "/home/leolucas/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
+    "/home/leolucas/.nuget/packages/microsoft.aspnetcore.cors/2.2.0/microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",
     "/home/leolucas/.nuget/packages/microsoft.aspnetcore.hosting/2.2.7/microsoft.aspnetcore.hosting.2.2.7.nupkg.sha512",
     "/home/leolucas/.nuget/packages/microsoft.aspnetcore.hosting.abstractions/2.2.0/microsoft.aspnetcore.hosting.abstractions.2.2.0.nupkg.sha512",
     "/home/leolucas/.nuget/packages/microsoft.aspnetcore.hosting.server.abstractions/2.2.0/microsoft.aspnetcore.hosting.server.abstractions.2.2.0.nupkg.sha512",
